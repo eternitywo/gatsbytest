@@ -6,25 +6,26 @@ module.exports = {
   plugins: [
     "gatsby-plugin-image",
     "gatsby-plugin-sharp",
+    "gatsby-transformer-sharp",
     {
       resolve: "gatsby-source-filesystem",
       options: {
         name: "Tech",
-        path: `${__dirname}/blog_tech`,
+        path: `${__dirname}/blog/tech`,
       },
     },
     {
       resolve: "gatsby-source-filesystem",
       options: {
         name: "Life",
-        path: `${__dirname}/blog_life`,
+        path: `${__dirname}/blog/life`,
       },
     },
     {
       resolve: "gatsby-source-filesystem",
       options: {
         name: "Fun",
-        path: `${__dirname}/blog_fun`,
+        path: `${__dirname}/blog/fun`,
       },
     },
     "gatsby-plugin-mdx",

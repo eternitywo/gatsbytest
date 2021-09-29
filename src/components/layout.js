@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Link, graphql, useStat, useStaticQuery } from "gatsby";
+import { Link, graphql, useStaticQuery } from "gatsby";
 import {
   container,
   heading,
