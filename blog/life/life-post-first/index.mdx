@@ -1,8 +1,9 @@
 ---
 category: "Life"
 title: "Java 설치"
+tags: ["M1", "MacbookAir", "굿"]
+description: "큭큭큭 재미 있는 것들이 잔뜩 있는!!! 여기가어디냐! 자바를 배우는 곳이지, Spring, Vert.x 등등등~~!!"
 date: "2021-07-24"
-tags: "M1"
 hero_image: "./hero3.jpeg"
 hero_image_alt: "some image"
 hero_image_credit_text: "some_text"
@@ -25,19 +26,198 @@ hahahahahahaha this is normal code <br/>
 hahahahaha <br/>
 haha...<br/>
 
-- [ ] hey you
+<code> brew install </code>
 
-```
-> brew install jenv
-> brew tap AdoptOpenJDK/openjdk
-> brew install adoptopenjdk8     // --cask?
-> brew install adoptopenjdk16
-> jenv add /Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home/
-> jenv add /Library/Java/JavaVirtualMachines/adoptopenjdk-16.jdk/Contents/Home/
-> jenv versions
-> jenv global openjdk64-16.0.1
-> jenv local openjdk64-1.8.0.292
-> java -version
-```
+- [x] hey you
+
+> <code> brew install jenv</code>
+> brew tap AdoptOpenJDK/openjdk brew install adoptopenjdk8 // --cask? brew install
+> adoptopenjdk16 jenv add /Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home/
+> jenv add /Library/Java/JavaVirtualMachines/adoptopenjdk-16.jdk/Contents/Home/ jenv
+> versions jenv global openjdk64-16.0.1 jenv local openjdk64-1.8.0.292 java -version
 
 > Good For You!
+
+```javascript
+const BlogPage = ({ data }) => {
+  return (
+    <Layout pageTitle="My Blog Posts">
+      <div>
+        {data.allMdx.nodes.map((node) => (
+          <article key={node.id}>
+            <h2>
+              <Link to={`/tech/${node.slug}`}>{node.frontmatter.title}</Link>
+            </h2>
+            <p>
+              <span>{node.frontmatter.category}</span>
+              {" | "}
+              <span>Posted : {node.frontmatter.date} </span>
+            </p>
+          </article>
+        ))}
+      </div>
+    </Layout>
+  );
+};
+```
+
+```python
+# FastAPI
+# Query = Query String Validation,  Path = URL Path Validation
+from fastapi import FastAPI, Path, Query, Body, Depends
+
+# Data & Type & datetime Management
+from pydantic import BaseModel, Field, ValidationError
+from typing import Optional, List, Dict, Tuple, Set
+from enum import Enum
+from datetime import date, datetime
+from time import sleep
+
+# os & 파일 처리 관련 패키지 import
+import os
+import pickle
+import shutil
+import tempfile
+import glob
+
+# json을 다루기 윈한 패키지 import
+import json
+from collections import OrderedDict  # dick key 의 순서를 보장한다. 그냥 dict 보장하지 않는다.
+
+"""
+# 수학 모듈
+import pandas as pd, numpy as np
+import six, pytz
+from dateutil.parser import parse
+
+# NoSQL : MongoDB / Redis / kafka???
+import pymongo as mongo
+from rediscluster import RedisCluster as redis
+
+# str(), repr() `
+"""
+
+app = FastAPI()
+
+
+class ModelName(str, Enum):
+    alexnet = "alexnet"
+    resnet = "resnet"
+    lenet = "lenet"
+
+
+class Item(BaseModel):
+    name: str
+    price: float
+    is_offer: Optional[bool] = None
+
+
+class User(BaseModel):
+    id: int
+    name: str
+    joined: date
+
+
+class Person:
+    def __init__(self, name: str):
+        self.name = name
+
+    def __call__(self):
+        print(self.name)
+
+
+class CommonQueryParams:
+    def __init__(self, q: Optional[str] = None, skip: int = 0, limit: int = 100):
+        self.q = q
+        self.skip = skip
+        self.limit = limit
+
+
+person1 = Person('dongho seo')
+person1()
+
+person2 = Person('jiyu seo')
+person2()
+
+
+def get_full_name(first_name: str, last_name: str):
+    print(first_name.upper(), first_name.title())
+    # convert the first letter of each one to upper case with title()
+    full_name = first_name.title() + " " + last_name.title()
+    return full_name
+
+
+def get_name_with_age(name: str, age: int):
+    name_with_age = name.title() + " is this old: " + str(age)
+    return name_with_age
+
+
+def typeHint():
+    my_user: User = User(id=3, name='john doe', joined='2020-07-09')
+    print(my_user)
+
+    second_user_data = {
+        'id': 4, 'name': 'mary', 'joined': '2020-11-28'
+    }
+
+    my_second_user: User = User(**second_user_data)
+    print(my_second_user)
+
+# print(get_full_name('john', 'doe'), get_name_with_age('dongho', 43))
+
+
+def process_items(items: List[str]):
+    for item in items:
+        print(item.capitalize())
+
+
+process_items(['dongho', 'jiyu', 'yujeong'])
+
+
+@ app.get('/test')
+async def read_test(commons: CommonQueryParams = Depends()):
+    response = {}
+    if commons.q:
+        response.update({"q": commons.q})
+        response.update({"skip": commons.skip, "limit": commons.limit})
+    return response
+
+
+@ app.get('/')
+async def read_root():
+    typeHint()
+    return {'Hello': 'world'}
+
+
+@ app.get('/items/{item_id}')
+async def read_item(item_id: int, q: Optional[str] = "2", p: Optional[str] = "haha"):
+    return {"item_id": item_id, "q": q, "p": p}
+
+
+@ app.put('/items/{item_id}')
+async def update_item(item_id: int, item: Item):
+    return {"item_name": Item.price, "item_id": item_id}
+
+
+@app.get('/models/{model_name}')
+async def get_model(model_name: ModelName):
+    if model_name == ModelName.alexnet:
+        return {"model_name": model_name, "message": "deep learning FTW!"}
+    elif model_name.value == "lenet":
+        return {"model_name": model_name, "message": "LeCNN all the images"}
+
+    return {"model_name": model_name, "message": "have some residuals!"}
+
+
+@app.get("/files/{file_path:path}")  # 파일 패스를 던지는 방법
+async def read_file(file_path: str):
+    return {"file_path": file_path}
+    # k=0
+    # while(True):
+    #   k=k+1
+    #   print(k)
+    #   sleep(0.1) # 0.1 초 단위 동작
+    #   if(k > 10):
+    #     break
+
+```

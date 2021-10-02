@@ -1,0 +1,198 @@
+.postbox {
+  display: flex;
+  margin-right: auto;
+  align-items: left;
+  margin: 0rem 0.5rem 4rem 0.5rem;
+}
+
+.postinfo {
+  display: flex;
+  margin-left: 2rem;
+  flex-direction: column;
+  align-items: left;
+}
+.postinfo div {
+  padding: 0.25rem;
+}
+
+.postimageblock {
+  min-width: 160px;
+  width: 160px;
+  height: 160px;
+  background-color: #635e69;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.postdateblocktext {
+  min-width: 160px;
+  width: 160px;
+  height: 160px;
+  background-color: #635e69;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  top: 0px;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.3s ease-in-out;
+}
+
+.postdateblocktextshow {
+  min-width: 160px;
+  width: 160px;
+  height: 160px;
+  background-color: #635e69;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  top: 0px;
+  opacity: 0.8;
+  transition: 0.3s ease-in-out;
+  visibility: visible;
+}
+
+.taglist {
+  display: flex;
+  justify-content: left;
+  align-items: left;
+  margin-right: auto;
+  margin-left: 0;
+}
+
+.postdateday {
+  margin: 0.1rem;
+  color: white;
+  font-weight: 100;
+  font-size: 5rem;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
+
+.postdatemonth {
+  color: whitesmoke;
+  margin-top: -1.5rem;
+  font-weight: 100;
+  font-size: 0.9rem;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
+
+.posttitle {
+  color: black;
+  font-size: 1.5rem;
+  font-weight: 900;
+}
+
+.posttitle:hover {
+  color: rgb(6, 2, 218)38);
+  transition: 0.25s;
+  font-weight: bolder;
+  text-decoration: underline;
+  text-decoration-color: lightskyblue;
+  text-underline-position: below;
+  text-underline-offset: 0.5rem;
+  text-decoration-thickness: 3px;
+}
+
+.posttags {
+  color: rgb(35, 167, 8);
+  font-weight: 100;
+  font-size: 0.8rem;
+  margin-left: -0.3rem;
+  margin-top: -0.3rem;
+  margin-right: 1.3rem;
+}
+
+.posttags:hover {
+  color: rgb(45, 216, 11);
+  font-weight: 100;
+  transition: 0.25s;
+}
+
+.postdescription {
+  color: grey;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.readmore {
+  color: gray;
+  font-size: 0.8rem;
+  font-weight: 200;
+}
+
+.readmore:hover {
+  color: rgb(35, 167, 8);
+  transition: 0.25s;
+  font-weight: bolder;
+}
+
+.underlinepost {
+  color: lightskyblue;
+  font-size: 1rem;
+  margin: 2rem 1rem 1.5rem 0.6rem;
+  text-decoration: underline;
+  text-underline-position: under;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
+
+.underlinetitle {
+  text-decoration: underline;
+  text-decoration-color: lightskyblue;
+  text-underline-position: below;
+  text-underline-offset: 0.5rem;
+  text-decoration-thickness: 3px;
+  margin-bottom: 1rem;
+}
+
+.postimage {
+  object-fit: cover;
+  width: 400px;
+  height: 400px;
+  margin: 0;
+}
+
+@media screen and (max-width: 768px) {
+  .postbox {
+    display: flex;
+    margin-right: auto;
+    align-items: left;
+    flex-direction: column;
+    margin: 0;
+  }
+
+  .postinfo {
+    display: flex;
+    margin: 0;
+    flex-direction: column;
+    align-items: left;
+  }
+
+  .postimageblock {
+    min-width: 320px;
+    width: 100%;
+    height: 100%;
+    background-color: #635e69;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+  }
+
+  .postimage {
+    resizemode: cover;
+    width: 100%;
+    height: auto;
+    margin: 0;
+  }
+
+  .postdateblocktext {
+    display: none;
+  }
+
+  .postdateblocktextshow {
+    display: none;
+  }
+}

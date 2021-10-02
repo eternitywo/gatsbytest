@@ -1,14 +1,19 @@
 ---
 category: "Tech"
 title: "My First Post"
+description: "케케케"
 date: "2021-07-23"
-tags: ""
+tags: ["Yes!"]
 hero_image: "./hero2.jpeg"
 hero_image_alt: "A white pitbull wearing big googly-eye glasses"
 hero_image_credit_text: "Jane Almon"
 hero_image_credit_link: "https://unsplash.com/photos/7rriIaBH6JY"
 ---
 
+import Youtube from "../../../src/components/youtube.js";
+import { SketchPicker } from "react-color";
+
+<Youtube url="X91jsJyZofw" />
 This is my first blog post! Isn't it _great_?
 
 Some of my **favorite** things are:
@@ -16,3 +21,67 @@ Some of my **favorite** things are:
 - Petting dogs
 - Singing
 - Eating potato-based foods
+
+  <Youtube url="CzkAGtCtneU" />
+
+1. haha
+2. goodOne
+3. Best One!
+
+# This is 만들다만 블로그 란다~
+
+## is it Great?
+
+### The
+
+#### Best!
+
+##### hahahahaha
+
+###### h6!!
+
+> hahha 아주 매우 길게 작성을 한다면 이 글은 아래로 내려결 것입니다.
+> 작성ㅇ르ㄴㄹㄴㅇㄹㄴㅇㄹㄴㄹㄴㄹㄴㄹㄴㄹㄴㅇㄹㄴㅇㄹㄴㄹㄴㄹㄴㄹ
+
+<code>hahaha</code>
+
+> 아니 <code> System.out.println("야 임마!")</code>
+
+```javascript
+const BlogPage = ({ data }) => {
+  return (
+    <Layout pageTitle="My Blog Posts">
+      <div>
+        {data.allMdx.nodes.map((node) => (
+          <article key={node.id}>
+            <h2>
+              <Link to={`/tech/${node.slug}`}>{node.frontmatter.title}</Link>
+            </h2>
+            <p>
+              <span>{node.frontmatter.category}</span>
+              {" | "}
+              <span>Posted : {node.frontmatter.date} </span>
+            </p>
+          </article>
+        ))}
+      </div>
+    </Layout>
+  );
+};
+```
+
+<SketchPicker />
+
+https://mdxjs.com
+
+[MDX](https://mdxjs.com)
+
+![alt](https://mdx-logo.now.sh)
+
+~~stri~~
+
+<q>악법도 법이다</q>
+
+_ha_
+
+`inlineCode`
