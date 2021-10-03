@@ -1,13 +1,15 @@
 import * as React from "react";
 import { useState } from "react";
 import { Link } from "gatsby";
+import { GatsbyImage } from "gatsby-plugin-image";
+import _ from "lodash";
 import "./postitem.css";
 
 const GetTagLinks = ({ tags }) => {
   return (
     <div className={"taglist"}>
       {tags.map((tag) => (
-        <Link>
+        <Link key={tag} to={`/tags/${_.kebabCase(tag)}/`}>
           <div className={"posttags"}>#{tag}</div>
         </Link>
       ))}
@@ -22,7 +24,6 @@ const PostItem = ({ slug, nfm }) => {
 
   return (
     <>
-      {/* <GatsbyImage image={hero_image} alt={description}></GatsbyImage> */}
       <div
         role={"button"}
         tabIndex={"0"}
@@ -36,11 +37,11 @@ const PostItem = ({ slug, nfm }) => {
       >
         <div style={{ position: "relative" }}>
           <div className={"postimageblock"}>
-            <img
+            <GatsbyImage
+              image={hero_image.childImageSharp.gatsbyImageData}
               className={"postimage"}
-              src={hero_image.childImageSharp.fluid.src}
-              alt={""}
-            ></img>
+              alt="11111123114w=sfiehfisaf-easfasef"
+            />
           </div>
           <div
             className={
@@ -57,7 +58,6 @@ const PostItem = ({ slug, nfm }) => {
             <div className={"posttitle"}>{title}</div>
           </Link>
           <div className={"postdescription"}>{description}</div>
-          {/* <div className={"postimageblock"}>{hero_image}</div> */}
           <Link to={`/tech/${slug}`}>
             <div className={"readmore"}>Read More</div>
           </Link>

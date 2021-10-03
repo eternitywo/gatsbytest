@@ -1,0 +1,60 @@
+.taglistcontainer {
+  position: absolute;
+  top: 260px;
+  right: 50px;
+  width: 300px;
+  font-size: 0.8rem;
+}
+
+.tagcontainer {
+  display: flex;
+  margin: 0.5rem;
+}
+
+.taglisttext {
+  font-weight: 100;
+  font-size: 0.8rem;
+  color: rgb(35, 167, 8);
+}
+
+.taglisttext:hover {
+  color: rgb(45, 216, 11);
+}
+
+@media screen and (max-width: 1760px) {
+  .taglistcontainer {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    top: auto;
+    right: auto;
+    font-size: 0.8rem;
+  }
+
+  .tagcontainer {
+    font-weight: 100;
+    font-size: 0.8rem;
+    flex-direction: row;
+  }
+}
+
+@media screen and (min-width: 1761px) and (max-width: 2560px) {
+  .taglistcontainer {
+    position: absolute;
+    top: 260px;
+    right: 50px;
+    width: 300px;
+    font-size: 0.8rem;
+  }
+}
+
+@media screen and (min-width: 2861px) and (max-width: 5000px) {
+  .taglistcontainer {
+    position: absolute;
+    top: 260px;
+    left: 2622px;
+    width: 300px;
+    font-size: 0.8rem;
+  }
+}

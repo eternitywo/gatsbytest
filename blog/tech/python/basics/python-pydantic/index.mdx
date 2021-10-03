@@ -1,0 +1,48 @@
+---
+category: "Tech"
+tags: ["python", "pydantic", "data validation"]
+title: "pydactic 개요 및 사용법 1"
+description: "Data validation and settings management using python type annotations. pydantic enforces type hints at runtime, and provides user friendly errors when data is invalid."
+date: "2021-10-02"
+hero_image: "./hero.png"
+hero_image_alt: "A white pitbull wearing big googly-eye glasses"
+hero_image_credit_text: "Jane Almon"
+hero_image_credit_link: "https://unsplash.com/photos/7rriIaBH6JY"
+---
+
+### Write a query to get all tags for your posts
+
+```graphql
+query MyQuery {
+  allMdx {
+    group(field: frontmatter___tags) {
+      tag: fieldValue
+      totalCount
+    }
+  }
+}
+```
+
+this is guide 문서입니다.
+
+### make a tags page template (for /tags/{tag})
+
+```graphql
+query ($tag: String) {
+  allMdx(
+    limit: 2000
+    sort: { fields: [frontmatter___date], order: DESC }
+    filter: { frontmatter: { tags: { in: [$tag] } } }
+  ) {
+    totalCount
+    edges {
+      node {
+        frontmatter {
+          title
+        }
+        slug
+      }
+    }
+  }
+}
+```

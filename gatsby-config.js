@@ -5,21 +5,12 @@ module.exports = {
     subtitle: "기억을 연장하기 위한 블로그",
   },
   plugins: [
+    "gatsby-plugin-mdx",
     "gatsby-plugin-image",
     "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",
-    `gatsby-transformer-remark`,
-    {
-      resolve: `gatsby-transformer-remark`,
-      options: {
-        // Footnotes mode (default: true)
-        footnotes: true,
-        // GitHub Flavored Markdown mode (default: true)
-        gfm: true,
-        // Plugins configs
-        plugins: [],
-      },
-    },
+    `gatsby-plugin-react-helmet`,
+    "gatsby-plugin-sitemap",
     {
       resolve: "gatsby-source-filesystem",
       options: {
@@ -41,7 +32,6 @@ module.exports = {
         path: `${__dirname}/blog/fun`,
       },
     },
-    "gatsby-plugin-mdx",
     {
       resolve: `gatsby-plugin-mdx`,
       options: {
@@ -61,6 +51,26 @@ module.exports = {
         pathToConfigModule: `src/utils/typography`,
       },
     },
-    "gatsby-plugin-sitemap",
+    {
+      resolve: "gatsby-remark-related-posts",
+      options: {
+        posts_dir: `${__dirname}/blog/tech`,
+        doc_lang: "en",
+      },
+    },
+    {
+      resolve: "gatsby-remark-related-posts",
+      options: {
+        posts_dir: `${__dirname}/blog/life`,
+        doc_lang: "en",
+      },
+    },
+    {
+      resolve: "gatsby-remark-related-posts",
+      options: {
+        posts_dir: `${__dirname}/blog/fun`,
+        doc_lang: "en",
+      },
+    },
   ],
 };

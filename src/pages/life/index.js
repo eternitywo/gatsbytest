@@ -5,9 +5,9 @@ import PostItem from "../../components/postitem";
 
 const BlogPage = ({ data }) => {
   return (
-    <Layout pageTitle="My Blog Posts">
+    <Layout pageTitle="Life">
       <div>
-        <div className="underlinepost">Posts...</div>
+        <div className="underlinepost">Recent Posts</div>
         {data.allMdx.nodes.map((node) => (
           <article key={node.id}>
             <PostItem slug={node.slug} nfm={node.frontmatter}></PostItem>
@@ -38,11 +38,8 @@ export const query = graphql`
           description
           date(formatString: "MMMM D, YYYY")
           hero_image {
-            absolutePath
             childImageSharp {
-              fluid {
-                src
-              }
+              gatsbyImageData(layout: FULL_WIDTH)
             }
           }
         }

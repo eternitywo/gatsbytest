@@ -2,6 +2,8 @@ import * as React from "react";
 import { graphql } from "gatsby";
 import { MDXRenderer } from "gatsby-plugin-mdx";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import GetTagLinks from "../../components/posttags";
+import PostPrevNext from "../../components/postprevnext";
 import Layout from "../../components/layout";
 
 const BlogPost = ({ data }) => {
@@ -24,6 +26,16 @@ const BlogPost = ({ data }) => {
         </a>
       </p>
       <MDXRenderer>{data.mdx.body}</MDXRenderer>
+      <div className="posttagspace"></div>
+      <GetTagLinks tags={data.mdx.frontmatter.tags}></GetTagLinks>
+      <div className="posttagspace"></div>
+      <div className="posttagspace"></div>
+      <div className="posttagspace"></div>
+
+      <PostPrevNext slug={data.mdx.slug}></PostPrevNext>
+      <div className="posttagspace"></div>
+      <div className="posttagspace"></div>
+      <div className="posttagspace"></div>
     </Layout>
   );
 };
@@ -31,8 +43,10 @@ const BlogPost = ({ data }) => {
 export const query = graphql`
   query ($id: String) {
     mdx(id: { eq: $id }) {
+      slug
       frontmatter {
         title
+        tags
         date(formatString: "MMMM D, YYYY")
         hero_image_alt
         hero_image_credit_link
