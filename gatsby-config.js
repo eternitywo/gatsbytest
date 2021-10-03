@@ -7,6 +7,7 @@ module.exports = {
   plugins: [
     "gatsby-plugin-mdx",
     "gatsby-plugin-image",
+    `gatsby-remark-images`,
     "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",
     `gatsby-plugin-react-helmet`,
@@ -38,9 +39,6 @@ module.exports = {
         gatsbyRemarkPlugins: [
           {
             resolve: `gatsby-remark-prismjs`,
-          },
-          {
-            resolve: `gatsby-remark-images`,
           },
         ],
       },
