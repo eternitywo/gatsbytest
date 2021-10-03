@@ -33,7 +33,7 @@
 @media screen and (max-width: 1760px) {
   .profilecontainer {
     position: relative;
-    display: flex;
+    display: none;
     flex-direction: row;
     width: 100%;
     top: auto;

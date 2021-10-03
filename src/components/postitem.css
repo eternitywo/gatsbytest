@@ -69,8 +69,7 @@
 .posttaglist {
   font-size: 0.8rem;
   display: flex;
-  justify-content: right;
-  align-items: right;
+  justify-content: flex-end;
   margin-top: 20px;
   margin-right: auto;
   height: auto;
@@ -111,6 +110,13 @@
 
 .postprevnexttitle {
   color: rgb(35, 167, 8);
+  font-weight: 100;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.postprevnexttitle:hover {
+  color: rgb(45, 216, 11);
   font-weight: 100;
   font-size: 1rem;
 }
@@ -207,6 +213,23 @@
   margin: 0;
 }
 
+.postbottomtags {
+  color: rgb(35, 167, 8);
+  font-weight: 100;
+  font-size: 0.8rem;
+  text-align: right;
+  padding: 8px 12px;
+  border-radius: 16px;
+  border: 1px solid lightblue;
+  margin-left: 1rem;
+}
+
+.postbottomtags:hover {
+  color: rgb(45, 216, 11);
+  font-weight: 100;
+  transition: 0.25s;
+}
+
 @media screen and (max-width: 768px) {
   .postbox {
     display: flex;
@@ -255,7 +278,8 @@
     font-weight: 200;
     margin-bottom: 3rem;
   }
-
+}
+@media screen and (max-width: 1000px) {
   .postprevnext {
     flex-direction: column-reverse;
   }

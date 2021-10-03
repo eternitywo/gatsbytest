@@ -112,16 +112,19 @@ blockquote p {
   padding-top: 100px;
 }
 
-@media screen and (max-width: 1920px) {
-  .dummy {
-    display: none;
-    transition: 1s;
-  }
+@media screen and (max-width: 1919px) {
   .header {
     position: relative;
   }
   .blogtopdummy {
-    padding-top: 0px;
+    padding-top: 20px;
+  }
+}
+
+@media screen and (max-width: 1920px) {
+  .dummy {
+    display: none;
+    transition: 1s;
   }
 }
 

@@ -7,7 +7,7 @@ const GetTagLinks = ({ tags }) => {
     <div className={"posttaglist"}>
       {tags.map((tag) => (
         <Link key={tag} to={`/tags/${_.kebabCase(tag)}/`}>
-          <div className={"posttags"}>#{tag}</div>
+          <div className={"postbottomtags"}>#{tag}</div>
         </Link>
       ))}
     </div>

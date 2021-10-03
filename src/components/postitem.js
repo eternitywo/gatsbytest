@@ -18,7 +18,7 @@ const GetTagLinks = ({ tags }) => {
 };
 
 const PostItem = ({ slug, nfm }) => {
-  const { title, description, date, tags, hero_image } = nfm;
+  const { title, description, date, tags, hero_image, category } = nfm;
   const dateValues = date.split(",")[0].split(" ");
   const [toggleDateBox, setToggleDateBox] = useState(true);
 
@@ -54,11 +54,11 @@ const PostItem = ({ slug, nfm }) => {
         </div>
         <div className={"postinfo"}>
           <GetTagLinks tags={tags}></GetTagLinks>
-          <Link to={`/tech/${slug}`}>
+          <Link to={`/${_.kebabCase(category)}/${slug}`}>
             <div className={"posttitle"}>{title}</div>
           </Link>
           <div className={"postdescription"}>{description}</div>
-          <Link to={`/tech/${slug}`}>
+          <Link to={`/${_.kebabCase(category)}/${slug}`}>
             <div className={"readmore"}>Read More</div>
           </Link>
         </div>

@@ -51,26 +51,5 @@ module.exports = {
         pathToConfigModule: `src/utils/typography`,
       },
     },
-    {
-      resolve: "gatsby-remark-related-posts",
-      options: {
-        posts_dir: `${__dirname}/blog/tech`,
-        doc_lang: "en",
-      },
-    },
-    {
-      resolve: "gatsby-remark-related-posts",
-      options: {
-        posts_dir: `${__dirname}/blog/life`,
-        doc_lang: "en",
-      },
-    },
-    {
-      resolve: "gatsby-remark-related-posts",
-      options: {
-        posts_dir: `${__dirname}/blog/fun`,
-        doc_lang: "en",
-      },
-    },
   ],
 };

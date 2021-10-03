@@ -46,8 +46,9 @@
     flex-direction: row;
     width: 100%;
     top: auto;
-    right: auto;
+    left: auto;
     font-size: 0.8rem;
+    margin-bottom: 80px;
   }
 
   .categorycontainer {
@@ -57,13 +58,13 @@
   }
 }
 
-@media screen and (min-width: 2751px) and (max-width: 3200px) {
+@media screen and (min-width: 2451px) and (max-width: 2900px) {
   .categorylistcontainer {
-    left: calc(100% - 2701px);
+    left: calc(100% - 2401px);
   }
 }
 
-@media screen and (min-width: 3201px) and (max-width: 5000px) {
+@media screen and (min-width: 2901px) and (max-width: 5000px) {
   .categorylistcontainer {
     left: 580px;
   }
