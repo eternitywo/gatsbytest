@@ -4,6 +4,7 @@
   right: 50px;
   width: 300px;
   font-size: 0.8rem;
+  height: auto;
 }
 
 .tagcontainer {
@@ -36,6 +37,7 @@
     font-weight: 100;
     font-size: 0.8rem;
     flex-direction: row;
+    height: auto;
   }
 }
 

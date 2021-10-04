@@ -18,13 +18,7 @@ const BlogPost = ({ data }) => {
         image={image}
         alt={data.mdx.frontmatter.hero_image_alt}
       ></GatsbyImage>
-      <p>
-        {" "}
-        Photo Credit:{" "}
-        <a href={data.mdx.frontmatter.hero_image_credit_link}>
-          {data.mdx.frontmatter.hero_image_credit_text}
-        </a>
-      </p>
+      <p></p>
       <MDXRenderer>{data.mdx.body}</MDXRenderer>
       <div className="posttagspace"></div>
       <GetTagLinks tags={data.mdx.frontmatter.tags}></GetTagLinks>

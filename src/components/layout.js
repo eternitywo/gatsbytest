@@ -183,17 +183,41 @@ const Layout = ({ pageTitle, children }) => {
   return (
     <div className={container}>
       <Helmet>
-        <meta
-          name="theme-color"
-          content="#4051b5"
-          media="(prefers-color-scheme: light)"
-        />
+        {isMobile
+          ? () => {
+              return (
+                <>
+                  <meta
+                    name="theme-color"
+                    content="#f5f5f5"
+                    media="(prefers-color-scheme: light)"
+                  />
 
-        <meta
-          name="theme-color"
-          content="#4051b5"
-          media="(prefers-color-scheme: dark)"
-        />
+                  <meta
+                    name="theme-color"
+                    content="#f5f5f5"
+                    media="(prefers-color-scheme: dark)"
+                  />
+                </>
+              );
+            }
+          : () => {
+              return (
+                <>
+                  <meta
+                    name="theme-color"
+                    content="#4051b5"
+                    media="(prefers-color-scheme: light)"
+                  />
+
+                  <meta
+                    name="theme-color"
+                    content="#4051b5"
+                    media="(prefers-color-scheme: dark)"
+                  />
+                </>
+              );
+            }}
       </Helmet>
       <div className={"header"} style={scrollY > 70 ? dropshadow : {}}>
         <title>
@@ -244,7 +268,7 @@ const Layout = ({ pageTitle, children }) => {
           </ul>
           <button
             className={"navbartoggle"}
-            style={{ border: 0, backgroundColor: "white" }}
+            style={{ border: 0, backgroundColor: "white", opacity: "0.5" }}
             onClick={() => {
               setToggleButton(!toggleButton);
             }}
